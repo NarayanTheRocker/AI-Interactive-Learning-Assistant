@@ -26,58 +26,64 @@ We've packed this learning assistant with features to make your study sessions s
 
 ## 🏗️ How It Works (System Architecture)
 
+## 🧠 AI-Powered Learning Assistant
+
 Our learning assistant is a smart web server that brings together different local AI models to understand your questions, whether you submit text, images, or voice input. Here’s how it works:
 
-1. Web UI
-The frontend is built with HTML, CSS, and JavaScript, providing users with:
+---
 
-Text input for typing questions.
+### 1. Web UI
 
-Image upload to send pictures along with optional text.
+The frontend is built with **HTML**, **CSS**, and **JavaScript**, providing users with:
 
-Voice input via microphone, which is transcribed to text automatically.
+- **Text input** for typing questions.
+- **Image upload** to send pictures along with optional text.
+- **Voice input** via microphone, which is transcribed to text automatically.
 
 All inputs are collected in the browser and sent to the backend for processing.
 
-2. Flask Backend (app.py)
-The backend is a Flask application that orchestrates the AI workflow:
+---
 
-Image Handling (BLIP Model)
+### 2. Flask Backend (`app.py`)
 
-If an image is provided, it is saved locally.
+The backend is a **Flask** application that orchestrates the AI workflow:
 
-The BLIP (Bootstrapping Language-Image Pretraining) model generates a description of the image.
+#### 🔹 Image Handling (BLIP Model)
+- If an image is provided, it is saved locally.
+- The **BLIP (Bootstrapping Language-Image Pretraining)** model generates a description of the image.
 
-Prompt Construction
+#### 🔹 Prompt Construction
+- The user’s question and the generated image description (if any) are combined into a **final prompt**.
+- This ensures that both visual and textual context are considered.
 
-The user’s question and the generated image description (if any) are combined into a final prompt.
+#### 🔹 Language Model (LLM)
+- The final prompt is sent to a local **LLaMA (GGUF)** model.
+- It generates an answer, which can be factual, descriptive, or conversational.
 
-This ensures that visual and textual context are both considered.
+#### 🔹 Response Delivery
+- The generated answer is sent back to the **web UI** for display.
 
-Language Model (LLM)
+---
 
-The final prompt is sent to a local Llama GGUF model, which generates an answer.
+### 3. Data Storage
 
-This answer can be factual, descriptive, or conversational, depending on the question.
+For persistence and long-term improvements, the system saves data locally in JSON format:
 
-Response Delivery
+- `saved_results.json`: Stores a history of user queries and AI responses.
+- `feedback_data.json`: Stores user feedback for future performance enhancement.
 
-The generated answer is returned to the web UI, where it is displayed to the user.
+---
 
-3. Data Storage
-For persistence and learning over time, the system saves data to local JSON files:
-
-saved_results.json stores the history of user queries and responses.
-
-feedback_data.json stores any user feedback to improve performance and accuracy in the future.
+### ✅ Modular & Extensible
 
 This modular design allows you to:
 
-Extend support for additional AI models (e.g., OCR, speech synthesis).
+- Extend support for more AI models (e.g., OCR, speech synthesis).
+- Customize how prompts are built and responses are displayed.
+- Build a **fully offline-capable**, private learning assistant.
 
-Customize prompts and response formats.
+---
 
-Build a fully offline-capable, private learning assistant.
 
 
 
