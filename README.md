@@ -86,17 +86,16 @@ This modular design allows you to:
 
 
 
-
-#⚙️ Getting Started
+**⚙️ Getting Started**
 Follow these steps to set up and run the AI-Powered Interactive Learning Assistant on your local machine.
 
-#🚚 1. Get the Code (Clone the Repository)
+**🚚 1. Get the Code (Clone the Repository)**
 Open your terminal or command prompt and run:
 
 git clone https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git
 cd AI-Interactive-Learning-Assistant
 
-#🧱 2. Set Up Your Workspace (Create a Virtual Environment)
+**🧱 2. Set Up Your Workspace (Create a Virtual Environment)**
 Creating a virtual environment keeps your dependencies isolated from other Python projects.
 
 For Windows:
@@ -106,16 +105,16 @@ For macOS/Linux:
 python3 -m venv venv
 source venv/bin/activate
 
-#📦 3. Install What's Needed (Install Python Dependencies)
+**📦 3. Install What's Needed (Install Python Dependencies)**
 Install all the required libraries:
 pip install -r requirements.txt
 
-#🧠 4. Download the Brains! (Download AI Models)
+**🧠 4. Download the Brains! (Download AI Models)**
 #You will need two models:
 One for image captioning (BLIP)
 One for text generation (TinyLlama)
 
-🟢 A) Download the BLIP Model (Automated)
+**🟢 A) Download the BLIP Model (Automated)**
 We provide a script to do this automatically:
 python download_models.py
 This will:
@@ -123,7 +122,7 @@ Create a directory like AI_Models/blip-base in your home folder.
 Download the BLIP model into it.
 Print the exact path – keep this path handy for later!
 
-🟢 B) Download the TinyLlama GGUF Model (Manual)
+**🟢 B) Download the TinyLlama GGUF Model (Manual)**
 Click here to download the TinyLlama GGUF model
 Create a folder on your computer to store it. For example:
 
@@ -135,11 +134,11 @@ macOS/Linux:
 
 Save the .gguf file inside this folder.
 
-#🛠️ 5. Configure Model Paths in app.py
+**🛠️ 5. Configure Model Paths in app.py**
 You need to tell the application where you saved these models.
 Open the app.py file in your text editor and locate the following lines near the top:
 
-# !!! IMPORTANT: Make sure this path to your GGUF model file is correct !!!
+!!! IMPORTANT: Make sure this path to your GGUF model file is correct !!!
 LLAMA_MODEL_PATH = r"C:\Users\91910\TinyLlama-1.1B-Chat-v0.4-GGUF\TinyLlama-1.1B-Chat-v0.4-Q4_K_M.gguf"
 
 # !!! IMPORTANT: Paste the absolute path from Step 4A here !!!
@@ -155,7 +154,7 @@ LLAMA_MODEL_PATH = "/home/user/AI_Models/LLM/tinyllama-1.1b-chat-v0.4.Q4_K_M.ggu
 BLIP_MODEL_PATH = "/home/user/AI_Models/blip-base"
 Make sure these are the exact full paths to the files and folders you created.
 
-#🚀 6. Run the Application
+**🚀 6. Run the Application**
 You're almost ready to go!
 Make sure your virtual environment is activated.
 
@@ -171,39 +170,28 @@ open that URL in your web browser. You are now ready to start learning with your
 
 
 
-⚡️ Optional: Optimize the Image Model for Faster Performance
+**⚡️ Optional: Optimize the Image Model for Faster Performance**
 For even better performance on CPU, you can convert the BLIP image model into the OpenVINO™ Intermediate Representation (IR) format (.xml and .bin). This can significantly speed up image analysis.
 
 How to Convert the Model
 We've included a script, optimized_model.py, to handle this conversion for you.
 
 Install additional libraries for the conversion:
-
-Bash
-
 pip install optimum[openvino]
 Run the optimization script:
-
-Bash
-
 python optimized_model.py
+
 This script will:
-
 Find the downloaded blip-base model.
-
 Convert it first to the ONNX format.
-
 Then, convert the ONNX model to the OpenVINO IR format (.xml and .bin files).
-
 Save the optimized model to a new directory, AI_Models/blip-base-ov/.
-
 It will print the path to this new directory.
 
 Using the Optimized Model
 After the conversion is successful, you just need to update the BLIP_MODEL_PATH in app.py to point to the new OpenVINO model directory.
 
 Example:
-
 Change this:
 BLIP_MODEL_PATH = r"C:\Users\YourUser\AI_Models\blip-base"
 
