@@ -87,66 +87,44 @@ This modular design allows you to:
 
 
 
-##⚙️ Getting Started
+#⚙️ Getting Started
 Follow these steps to set up and run the AI-Powered Interactive Learning Assistant on your local machine.
 
-🚚 1. Get the Code (Clone the Repository)
+#🚚 1. Get the Code (Clone the Repository)
 Open your terminal or command prompt and run:
 
-bash
-Copy
-Edit
 git clone https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git
 cd AI-Interactive-Learning-Assistant
-🧱 2. Set Up Your Workspace (Create a Virtual Environment)
+
+#🧱 2. Set Up Your Workspace (Create a Virtual Environment)
 Creating a virtual environment keeps your dependencies isolated from other Python projects.
 
 For Windows:
-
-bash
-Copy
-Edit
 python -m venv venv
 venv\Scripts\activate
 For macOS/Linux:
-
-bash
-Copy
-Edit
 python3 -m venv venv
 source venv/bin/activate
-📦 3. Install What's Needed (Install Python Dependencies)
+
+#📦 3. Install What's Needed (Install Python Dependencies)
 Install all the required libraries:
-
-bash
-Copy
-Edit
 pip install -r requirements.txt
-🧠 4. Download the Brains! (Download AI Models)
-You will need two models:
 
+#🧠 4. Download the Brains! (Download AI Models)
+#You will need two models:
 One for image captioning (BLIP)
-
 One for text generation (TinyLlama)
 
 🟢 A) Download the BLIP Model (Automated)
 We provide a script to do this automatically:
-
-bash
-Copy
-Edit
 python download_models.py
 This will:
-
 Create a directory like AI_Models/blip-base in your home folder.
-
 Download the BLIP model into it.
-
 Print the exact path – keep this path handy for later!
 
 🟢 B) Download the TinyLlama GGUF Model (Manual)
 Click here to download the TinyLlama GGUF model
-
 Create a folder on your computer to store it. For example:
 
 Windows:
@@ -157,14 +135,10 @@ macOS/Linux:
 
 Save the .gguf file inside this folder.
 
-🛠️ 5. Configure Model Paths in app.py
+#🛠️ 5. Configure Model Paths in app.py
 You need to tell the application where you saved these models.
-
 Open the app.py file in your text editor and locate the following lines near the top:
 
-python
-Copy
-Edit
 # !!! IMPORTANT: Make sure this path to your GGUF model file is correct !!!
 LLAMA_MODEL_PATH = r"C:\Users\91910\TinyLlama-1.1B-Chat-v0.4-GGUF\TinyLlama-1.1B-Chat-v0.4-Q4_K_M.gguf"
 
@@ -173,37 +147,21 @@ BLIP_MODEL_PATH = r"C:/AI_Models/blip-base"  # <-- CHANGE THIS
 Update these paths to match your environment.
 
 Example for Windows:
-
-python
-Copy
-Edit
 LLAMA_MODEL_PATH = r"C:\AI_Models\LLM\tinyllama-1.1b-chat-v0.4.Q4_K_M.gguf"
 BLIP_MODEL_PATH = r"C:\Users\YourUser\AI_Models\blip-base"
-Example for macOS/Linux:
 
-python
-Copy
-Edit
+Example for macOS/Linux:
 LLAMA_MODEL_PATH = "/home/user/AI_Models/LLM/tinyllama-1.1b-chat-v0.4.Q4_K_M.gguf"
 BLIP_MODEL_PATH = "/home/user/AI_Models/blip-base"
 Make sure these are the exact full paths to the files and folders you created.
 
-🚀 6. Run the Application
+#🚀 6. Run the Application
 You're almost ready to go!
-
 Make sure your virtual environment is activated.
 
 Start the Flask server:
-
-bash
-Copy
-Edit
 python app.py
 After a few moments, your terminal will show logs indicating that the models are loading. When you see something like:
-
-csharp
-Copy
-Edit
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 open that URL in your web browser. You are now ready to start learning with your AI-powered assistant!
 
