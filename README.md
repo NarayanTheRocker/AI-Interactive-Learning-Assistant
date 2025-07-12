@@ -26,42 +26,58 @@ We've packed this learning assistant with features to make your study sessions s
 
 ## 🏗️ How It Works (System Architecture)
 
-Our learning assistant is a smart web server that brings together different local AI models to understand your questions, no matter how you ask them.
+Our learning assistant is a smart web server that brings together different local AI models to understand your questions, whether you submit text, images, or voice input. Here’s how it works:
 
-+-----------------------------------------------------------------+
-|               Web UI (index.html, style.css, script.js)        |
-| [Text Input]      [Image Upload]      [Voice Input (Mic)]      |
-+-----------------------------------------------------------------+
-|                           |                           |
-| (text)                    | (image + optional text)   | (transcribed text)
-|                           |                           |
-V                           V                           V
-+-----------------------------------------------------------------+
-|                       Flask Backend (app.py)                   |
-|-----------------------------------------------------------------|
-|                               |                                 |
-|     +------------------------+                                 |
-|     | If Image is present:   |                                 |
-|     |   1. Save Image        |                                 |
-|     |   2. Analyze w/ BLIP -> [Image Description]              |
-|     +------------------------+                                 |
-|                               |                                 |
-|  [User Query] + [Image Description (if any)] -> [Final Prompt] |
-|                               |                                 |
-|                               V                                 |
-|             +------------------+                               |
-|             |   LLM (Llama GGUF) | -> [Generated Answer]        |
-|             +------------------+                               |
-|                               |                                 |
-|                               V                                 |
-| +-------------------------------------------------------------+ |
-| |   Response sent back to Web UI for display                  | |
-| +-------------------------------------------------------------+ |
-|                                                                 |
-|--- Data Storage (Local JSON files) ---------------------------|
-|   - saved_results.json (Query History)                        |
-|   - feedback_data.json (User Feedback)                        |
-+-----------------------------------------------------------------+
+1. Web UI
+The frontend is built with HTML, CSS, and JavaScript, providing users with:
+
+Text input for typing questions.
+
+Image upload to send pictures along with optional text.
+
+Voice input via microphone, which is transcribed to text automatically.
+
+All inputs are collected in the browser and sent to the backend for processing.
+
+2. Flask Backend (app.py)
+The backend is a Flask application that orchestrates the AI workflow:
+
+Image Handling (BLIP Model)
+
+If an image is provided, it is saved locally.
+
+The BLIP (Bootstrapping Language-Image Pretraining) model generates a description of the image.
+
+Prompt Construction
+
+The user’s question and the generated image description (if any) are combined into a final prompt.
+
+This ensures that visual and textual context are both considered.
+
+Language Model (LLM)
+
+The final prompt is sent to a local Llama GGUF model, which generates an answer.
+
+This answer can be factual, descriptive, or conversational, depending on the question.
+
+Response Delivery
+
+The generated answer is returned to the web UI, where it is displayed to the user.
+
+3. Data Storage
+For persistence and learning over time, the system saves data to local JSON files:
+
+saved_results.json stores the history of user queries and responses.
+
+feedback_data.json stores any user feedback to improve performance and accuracy in the future.
+
+This modular design allows you to:
+
+Extend support for additional AI models (e.g., OCR, speech synthesis).
+
+Customize prompts and response formats.
+
+Build a fully offline-capable, private learning assistant.
 
 
 
