@@ -29,28 +29,28 @@ We've packed this learning assistant with features to make your study sessions s
 Our learning assistant is a smart web server that brings together different local AI models to understand your questions, no matter how you ask them.
 
 +-----------------------------------------------------------------+
-|               Web UI (index.html, style.css, script.js)         |
-| [Text Input]      [Image Upload]      [Voice Input (Mic)]     |
+|               Web UI (index.html, style.css, script.js)        |
+| [Text Input]      [Image Upload]      [Voice Input (Mic)]      |
 +-----------------------------------------------------------------+
 |                           |                           |
 | (text)                    | (image + optional text)   | (transcribed text)
 |                           |                           |
 V                           V                           V
 +-----------------------------------------------------------------+
-|              Flask Backend (app.py)                           |
+|                        Flask Backend (app.py)                  |
 |-----------------------------------------------------------------|
 |                               |                                 |
 |     +------------------------+                                 |
 |     | If Image is present:   |                                 |
 |     |   1. Save Image        |                                 |
-|     |   2. Analyze w/ BLIP -> [Image Description]               |
+|     |   2. Analyze w/ BLIP -> [Image Description]              |
 |     +------------------------+                                 |
 |                               |                                 |
 |  [User Query] + [Image Description (if any)] -> [Final Prompt] |
 |                               |                                 |
 |                               V                                 |
 |             +------------------+                                |
-|             |  LLM (Llama GGUF)  | -> [Generated Answer]         |
+|             |   LLM (Llama GGUF) | -> [Generated Answer]        |
 |             +------------------+                                |
 |                               |                                 |
 |                               V                                 |
@@ -63,8 +63,6 @@ V                           V                           V
 |   - feedback_data.json (User Feedback)                        |
 +-----------------------------------------------------------------+
 
-
----
 
 ## 🛠️ Get Started! (Setup and Installation)
 
