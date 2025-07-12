@@ -37,7 +37,7 @@ Our learning assistant is a smart web server that brings together different loca
 |                           |                           |
 V                           V                           V
 +-----------------------------------------------------------------+
-|                        Flask Backend (app.py)                  |
+|                       Flask Backend (app.py)                   |
 |-----------------------------------------------------------------|
 |                               |                                 |
 |     +------------------------+                                 |
@@ -49,9 +49,9 @@ V                           V                           V
 |  [User Query] + [Image Description (if any)] -> [Final Prompt] |
 |                               |                                 |
 |                               V                                 |
-|             +------------------+                                |
+|             +------------------+                               |
 |             |   LLM (Llama GGUF) | -> [Generated Answer]        |
-|             +------------------+                                |
+|             +------------------+                               |
 |                               |                                 |
 |                               V                                 |
 | +-------------------------------------------------------------+ |
@@ -62,6 +62,7 @@ V                           V                           V
 |   - saved_results.json (Query History)                        |
 |   - feedback_data.json (User Feedback)                        |
 +-----------------------------------------------------------------+
+
 
 
 ## 🛠️ Get Started! (Setup and Installation)
