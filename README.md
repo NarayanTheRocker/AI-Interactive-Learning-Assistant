@@ -1,42 +1,41 @@
-AI-Powered Interactive Learning Assistant for Classrooms
+# AI-Powered Interactive Learning Assistant for Classrooms
+
 Welcome to the AI-Powered Interactive Learning Assistant! 🚀
 
 This is an open-source, free, and low-hardware-intensive project designed especially for students and educators! Our goal is to bring the power of AI right into your classroom, making learning more interactive, engaging, and accessible for everyone.
 
-Think of this project as your personal AI-Powered Multi-Modal Learning Hub. It's a smart web application that runs entirely on your own computer, allowing you to interact using text, your voice, or even images to get intelligent answers from local AI models. The best part? Because it runs locally, your data always stays private and you can use it even without an internet connection!
+Think of this project as your personal **AI-Powered Multi-Modal Learning Hub**. It's a smart web application that runs entirely on your own computer, allowing you to interact using text, your voice, or even images to get intelligent answers from local AI models. The best part? Because it runs locally, your data always stays private and you can use it even without an internet connection!
 
-✨ What Can It Do? (Features)
+---
+
+## ✨ What Can It Do? (Features)
+
 We've packed this learning assistant with features to make your study sessions smarter and more fun:
 
-Talk, Type, or Show! (Multi-Modal Interaction): Got a question? Just type it out, speak into your microphone, or upload a picture (like a diagram or a math problem!). Our assistant understands them all.
+-   **Talk, Type, or Show! (Multi-Modal Interaction)**: Got a question? Just type it out, speak into your microphone, or upload a picture (like a diagram or a math problem!). Our assistant understands them all.
+-   **Smart AI, Right on Your Device (Powerful Local AI)**:
+    -   For Text: We use **TinyLlama-1.1B** to understand your questions and give helpful, clear answers.
+    -   For Images: The **BLIP-base** model helps the assistant "see" and understand what's in your pictures, so you can ask questions about what you're looking at.
+-   **Easy to Use (Web-Based Interface)**: We built a clean and simple interface using HTML, CSS, and JavaScript, all powered by a Flask backend. It's super easy to navigate!
+-   **Hands-Free Learning (Voice-to-Text)**: Speak your questions naturally! Our integration with your browser's Web Speech API makes asking questions effortless.
+-   **Never Forget a Lesson (Query History)**: All your questions and the AI's answers are saved automatically, so you can review them anytime.
+-   **Gets Smarter Over Time (Feedback Loop)**: You can tell us if an answer was "Good"! When you do, the system remembers that perfect answer for similar questions in the future, making it faster and even more accurate.
+-   **Your Data Stays Yours (Privacy-Focused)**: Since everything runs on your computer, none of your information ever leaves your device. Your learning is your business!
 
-Smart AI, Right on Your Device (Powerful Local AI):
+---
 
-For Text: We use TinyLlama-1.1B to understand your questions and give helpful, clear answers.
+## 🏗️ How It Works (System Architecture)
 
-For Images: The BLIP-base model helps the assistant "see" and understand what's in your pictures, so you can ask questions about what you're looking at.
-
-Easy to Use (Web-Based Interface): We built a clean and simple interface using HTML, CSS, and JavaScript, all powered by a Flask backend. It's super easy to navigate!
-
-Hands-Free Learning (Voice-to-Text): Speak your questions naturally! Our integration with your browser's Web Speech API makes asking questions effortless.
-
-Never Forget a Lesson (Query History): All your questions and the AI's answers are saved automatically, so you can review them anytime.
-
-Gets Smarter Over Time (Feedback Loop): You can tell us if an answer was "Good"! When you do, the system remembers that perfect answer for similar questions in the future, making it faster and even more accurate.
-
-Your Data Stays Yours (Privacy-Focused): Since everything runs on your computer, none of your information ever leaves your device. Your learning is your business!
-
-🏗️ How It Works (System Architecture)
 Our learning assistant is a smart web server that brings together different local AI models to understand your questions, no matter how you ask them.
 
 +-----------------------------------------------------------------+
 |               Web UI (index.html, style.css, script.js)         |
 | [Text Input]      [Image Upload]      [Voice Input (Mic)]     |
 +-----------------------------------------------------------------+
-      |                           |                           |
-      | (text)                    | (image + optional text)   | (transcribed text)
-      |                           |                           |
-      V                           V                           V
+|                           |                           |
+| (text)                    | (image + optional text)   | (transcribed text)
+|                           |                           |
+V                           V                           V
 +-----------------------------------------------------------------+
 |              Flask Backend (app.py)                           |
 |-----------------------------------------------------------------|
@@ -63,22 +62,27 @@ Our learning assistant is a smart web server that brings together different loca
 |   - saved_results.json (Query History)                        |
 |   - feedback_data.json (User Feedback)                        |
 +-----------------------------------------------------------------+
-🛠️ Get Started! (Setup and Installation)
+
+
+---
+
+## 🛠️ Get Started! (Setup and Installation)
+
 Ready to bring your AI learning assistant to life? Just follow these simple steps!
 
-1. What You Need (Prerequisites)
+### 1. What You Need (Prerequisites)
+
 Make sure you have:
 
-Python 3.8+
+-   Python 3.8+
+-   Git
 
-Git
+### 2. Get the Code (Clone the Repository)
 
-2. Get the Code (Clone the Repository)
 Open your terminal or command prompt and run:
 
-Bash
-
-git clone https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git
+```bash
+git clone [https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git](https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git)
 cd AI-Interactive-Learning-Assistant
 3. Set Up Your Workspace (Create a Virtual Environment)
 This keeps your project's files organized and separate from other Python projects.
@@ -129,7 +133,7 @@ Python
 # !!! IMPORTANT: Make sure this path to your GGUF model file is correct !!!
 LLAMA_MODEL_PATH = r"C:\Users\91910\TinyLlama-1.1B-Chat-v0.4-GGUF\TinyLlama-1.1B-Chat-v0.4-Q4_K_M.gguf"
 
-# !!! IMPORTANT: Paste the absolute path from Step 3 of the instructions here !!!
+# !!! IMPORTANT: Paste the absolute path from Step 5A here !!!
 BLIP_MODEL_PATH = r"C:/AI_Models/blip-base" # <-- CHANGE THIS
 Update LLAMA_MODEL_PATH: Replace the example path with the full path to your downloaded .gguf file.
 
