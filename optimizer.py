@@ -32,7 +32,7 @@
 #     opset_version=13
 # )
 
-# print("✅ Exported to blip_vision_encoder.onnx")
+# print("Exported to blip_vision_encoder.onnx")
 
 
 
