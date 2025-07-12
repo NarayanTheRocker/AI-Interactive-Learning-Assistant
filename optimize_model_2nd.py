@@ -8,7 +8,7 @@ model for language tasks and an OpenVINO-optimized BLIP model for fast
 image analysis. The application also includes a feedback mechanism and saves
 conversation history.
 
-Author: [Your Name/AI Assistant]
+Author: [N Narayan]
 Date: 25 June 2025
 """
 
