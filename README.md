@@ -85,8 +85,33 @@ This modular design allows you to:
 ---
 
 
+## ⚙️ Getting Started
 
-**⚙️ Getting Started**
+Follow these steps to set up and run the AI-Powered Interactive Learning Assistant on your local machine.
+
+---
+
+### 🚚 1. Get the Code (Clone the Repository)
+
+Open your terminal or command prompt and run:
+git clone https://github.com/NarayanTheRocker/AI-Interactive-Learning-Assistant.git
+cd AI-Interactive-Learning-Assistant
+
+### 🧱 2. Set Up Your Workspace (Create a Virtual Environment)
+Creating a virtual environment keeps your dependencies isolated from other Python projects.
+
+For Windows:
+python -m venv venv
+venv\Scripts\activate
+
+
+
+
+
+
+
+
+### ⚙️ Getting Started 
 Follow these steps to set up and run the AI-Powered Interactive Learning Assistant on your local machine.
 
 **🚚 1. Get the Code (Clone the Repository)**
